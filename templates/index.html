@@ -13,6 +13,7 @@
         <p>{{form.book_name}}</p>
         {{form.submit}}
     </form>
+    <hr/>
     <ul>
         {% for author in authors %}
         <li>
@@ -20,6 +21,7 @@
             <ul>
                 {% for book in author.books %}
                 <li> 书名: {{book.name}} </li>
+                <a href={{url_for("delete_book", id=book.id)}}>删除书籍</a>
                 {% endfor %}
             </ul>
 
