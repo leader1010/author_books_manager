@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>author_books</title>
+</head>
+<body>
+    <form action="submit-book">
+        {{form.csrf_token}}
+        {{form.author_name.label}}
+        <p>{{form.author_name}}</p>
+        {{form.book_name.label}}
+        <p>{{form.book_name}}</p>
+        {{form.submit}}
+    </form>
+    <ul>
+        {% for author in authors %}
+        <li>
+            作者: {{author.name}}
+            <ul>
+                {% for book in author.books %}
+                <li> 书名: {{book.name}} </li>
+                {% endfor %}
+            </ul>
+
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
